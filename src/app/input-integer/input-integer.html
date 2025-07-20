@@ -2,7 +2,7 @@
     <div class="input-group-prepend">
         <button class="btn btn-primary btn-sm" (click)="lowQuantity()">-</button>
     </div>       
-        <input type="text" class="form-control form-control-sm" [(ngModel)]="quantity"/> 
+        <input type="text" class="form-control form-control-sm" [(ngModel)]="quantity" [readonly]="true"/> 
     <div class="input-group-prepend"> 
         <button class="btn btn-primary btn-sm" (click)="upQuantity()">+</button>
     </div>
