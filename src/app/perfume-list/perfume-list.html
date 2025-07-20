@@ -1,0 +1,47 @@
+<h3>Lista de Perfumes</h3>
+<table class="table text-center">
+    <thead>
+        <tr>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Tipo</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Compra</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (perfume of perfumes; track perfume.name){
+        <tr>
+            <td><img class="img-thumbnail" [src]="perfume.image" [alt]="perfume.name"/></td>
+            <td>{{perfume.name}}</td>
+            <td>{{perfume.type}}</td>
+            <td>{{perfume.price|currency}}</td>
+            
+            @if (perfume.stock > 0) {
+                <td>{{ getAvailableStock(perfume) }}</td>
+                <td class="align-middle">
+                    <div class="d-flex flex-column align-items-center justify-content-center gap-2">
+                    <app-input-integer
+                        [(quantity)]="perfume.quantity"
+                        [maxLimit]="getAvailableStock(perfume)">
+                    </app-input-integer>
+
+                    <button class="btn btn-primary text-center" (click)="addToCart(perfume)">
+                        Agregar al carrito
+                    </button>
+                    </div>
+                </td>
+            } @else {
+                <td>SIN STOCK</td>
+            }
+        </tr>
+        } @empty {
+            <tr>
+                <td>
+                    <span class="badge bg-waning text-dark">No hay perfumes para mostrar.</span>
+                </td>
+            </tr>
+        }
+    </tbody>   
+</table>

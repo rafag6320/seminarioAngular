@@ -1,0 +1,8 @@
+@media (max-width: 1200px) {
+  .row.g-4 {
+    flex-direction: column;
+  }
+  .col-8, .col-4 {
+    width: 100%;
+  }
+}

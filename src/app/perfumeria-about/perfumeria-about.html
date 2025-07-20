@@ -1,0 +1,25 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-4 text-center">
+      <img src="assets/img/antonito.jpg" alt="Antonio Banderas" class="img-fluid rounded shadow-sm mb-3" />
+    </div>
+
+    <div class="col-md-8">
+      <h2>Sobre Antonio Banderas</h2>
+      <p>
+        <strong>Antonio Banderas</strong> (Málaga, 10 de agosto de 1960) es un reconocido actor, director y empresario español. Su carrera cinematográfica abarca desde grandes producciones de Hollywood como
+        <em>La Máscara del Zorro</em> y <em>Philadelphia</em>, hasta colaboraciones con Pedro Almodóvar.
+      </p>
+      <p>
+        Además de su versatilidad en la actuación, Antonio ha incursionado con éxito en el mundo de los perfumes. Su línea de fragancias refleja su elegancia, carisma y estilo mediterráneo, convirtiéndose en una marca personal que combina pasión, autenticidad y sofisticación.
+      </p>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <h4 class="mb-3">Galería</h4>
+    <div class="col-6 col-md-3 mb-3" *ngFor="let image of gallery">
+      <img [src]="image" class="img-fluid rounded shadow-sm" alt="Imagen de Antonio Banderas" />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+<section aria-labelledby="cart-title" class="mt-4">
+  <header class="mb-3">
+    <h3 id="cart-title">Carrito de compras</h3>
+  </header>
+
+  <div>
+    <table class="table text-center align-middle">
+      <thead>
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">Subtotal</th>
+          <th scope="col">Acción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of cartItems$ | async">
+          <td>{{ item.name }}</td>
+          <td>{{ item.price | currency }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>{{ item.price * item.quantity | currency }}</td>
+          <td>
+            <button 
+              type="button" 
+              class="btn btn-sm btn-danger" 
+              (click)="removeFromCart(item)">
+              Eliminar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3" class="text-end fw-bold">Total:</td>
+          <td colspan="1" class="fw-bold">
+            {{ getTotal() | currency }}
+          </td>
+          <td colspan="1">
+            <button type="button" class="btn btn-success" (click)="buyFromCart()" [disabled]="getTotal()===0">Comprar</button>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</section>
